@@ -4,6 +4,17 @@ on:
   pull_request:
 
 jobs:
+  # TODO: 重複コードの共通化
+  phpunit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+      - name: Install dependencies
+        run: composer install --no-progress --no-suggest
+      - name: Run PHPUnit
+        run: composer phpunit
   phpstan:
     runs-on: ubuntu-latest
     steps:
