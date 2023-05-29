@@ -1,0 +1,15 @@
+{
+  "require-dev": {
+    "phpstan/phpstan": "^1.10",
+    "phpunit/phpunit": "^10.1"
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit test/",
+    "phpstan": "vendor/bin/phpstan analyse --level=0 src"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src"
+    }
+  }
+}
