@@ -1,8 +1,6 @@
 name: ReDoc
 on: 
   push:
-  pull_request:
-  pages:
     paths:
       - reference/*.yaml
 
