@@ -147,7 +147,7 @@ paths:
       description: Create a new user.
   /task:
     get:
-      summary: Get All Task
+      summary: Get ALL Task
       tags: []
       operationId: get-task
       description: タスク一覧取得
