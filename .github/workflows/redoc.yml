@@ -1,0 +1,26 @@
+name: ReDoc
+on: 
+  push:
+  pull_request:
+  pages:
+    paths:
+      - reference/*.yaml
+
+jobs:
+  redoc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - name: Install dependencies
+        run: npm i -g redoc-cli
+      - name: Build ReDoc
+        run: redoc-cli bundle reference/php-test-api.yaml --output docs/index.html
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
